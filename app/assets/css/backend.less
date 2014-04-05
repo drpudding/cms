@@ -1,0 +1,59 @@
+/* BACK END STYLES (LESS or CSS) */
+
+@import 'base.less';  
+@import "colorbox_custom.less"; // colorbox tweaks
+
+/* SEMANTICS BASED ON WYSIHTML5 */
+ul.wysihtml5-toolbar .btn{
+	padding: 5px;
+	font-size: 12px;
+}
+
+/* SEMANTICS BASED ON DATATABLE */
+
+.dataTables_wrapper .dropdown-menu > li > a { // checkbox menu
+    padding: 5px 8px;
+}
+
+.dataTables_wrapper button.clearFilters {
+	line-height: 1;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+	padding: 0 5px;
+}
+
+table.dataTable{
+    margin: 10px !important;
+}
+
+table.dataTable .dropdown-menu { // actions menu
+  font-size: @font-size-small;
+}
+
+table.dataTable dataTables_filter label {
+    font-weight: normal;
+}
+
+table.table thead .sorting {
+    background: url("") no-repeat scroll right center rgba(0, 0, 0, 0); // hide asc/desc arrows
+}
+
+table.table thead .sorting_disabled {
+    cursor: default; // hide pointer if not sortable
+}
+
+table.dataTable thead th {
+    border-bottom: 2px solid #DDDDDD !important;
+}
+
+table.dataTable tr.odd td.sorting_1, // new slected column hilite colors
+table.dataTable tr.odd td.sorting_2,
+table.dataTable tr.odd td.sorting_3,
+table.dataTable tr.even td.sorting_3 { background-color: #f3f3f3 !important; }
+
+table.dataTable tr.even td.sorting_1,
+table.dataTable tr.even td.sorting_2,
+table.dataTable tr.even td.sorting_3 { background-color: #f9f9f9 !important; }

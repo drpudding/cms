@@ -1,0 +1,217 @@
+/* FRONT END STYLES (LESS or CSS) */
+
+@import 'base.less'; 
+
+
+
+/* TEST Styles for test/bootstrap */
+
+// mixins
+.testdiv, .testdiv2 { 
+    width: 300px;
+    padding: 15px;
+}
+
+.testdiv2 { 
+    .transition(width 1s ease .25s);// property duration timing-function (ease, linear, etc) delay
+}
+
+.test-wrapper {                 // treat div like a grid row
+    .make-row();
+}
+
+.test-content-main {            // treat div like a grid column
+    .make-lg-column(8);
+}
+
+.test-content-secondary {       // treat div like a grid column
+    .make-lg-column(3);
+    .make-lg-column-offset(1);
+}
+
+.test-round-top {               // rounded corners
+    .border-top-radius(20px);
+}
+
+.test-round-left {              // rounded corners
+    .border-left-radius(20px);
+}
+
+.test-round-bottom {            // rounded corners
+    .border-bottom-radius(20px);
+}
+
+.test-shadow {
+    .box-shadow(3px 3px 3px 0px rgba(0,0,0,.25)); //h-shadow v-shadow blur spread color
+    .opacity(.5);
+}
+
+.test-round-top:hover {         // for transition
+    width: 500px; 
+}
+
+.test-round-left:hover {        // for rotate
+    .rotate(90deg);
+}
+
+.test-round-bottom:hover {      // for translate (x, y distance)
+    .translate(50px,0px);
+}
+
+.test-gradient{                 // gradient
+    #gradient > .vertical(#fff; #a7aad0);
+}
+
+.test-columns {                 // make columns (count; gutter)
+    .content-columns(4;100px); 
+}
+
+.test-rectangle {               // make rectangle (width; height)
+    .size(195px; 50px);
+}
+
+.test-square {                 // make square
+    .square(70px);
+}
+
+.test-resizable {               // resize both directions
+    .resizable(both);
+}
+
+.test-resizable-v {             // resize vertical direction
+    .resizable(vertical);
+}
+
+.test-truncate {                // truncate text
+    .text-overflow();
+}
+
+.test-scrollspy {               // scrollspy example
+    height: 200px;
+    margin-top: 10px;
+    overflow: auto;
+    position: relative;
+}
+
+
+/*  AFFIX Styles, as per Bootstrap sample 
+    .col-md set so nav stacks below content until medium viewport
+*/
+
+// body {                        
+//     position: relative;         // required for affix-bottom absolute positioning
+// }
+
+.test-sidebar {                 // required with fixed navbar
+    margin-top: 60px;
+}  
+
+.test-sidenav {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* parent level links */
+.test-sidebar .nav > li > a {       
+    color: #999999;
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 20px;
+}
+
+.test-sidebar .nav > li > a:hover, .test-sidebar .nav > li > a:focus {
+    background-color: rgba(0, 0, 0, 0);
+    border-left: 1px solid #563D7C;
+    color: #563D7C;
+    padding-left: 19px;
+    text-decoration: none;
+}
+
+// the active link
+.test-sidebar .nav > .active > a, .test-sidebar .nav > .active:hover > a, .test-sidebar .nav > .active:focus > a {
+    background-color: rgba(0, 0, 0, 0);
+    border-left: 2px solid #563D7C;
+    color: #563D7C;
+    font-weight: 700;
+    padding-left: 18px;
+}
+
+/* child level sub-links */
+.test-sidebar .nav .nav {
+    display: none;
+    padding-bottom: 10px;
+}
+
+.test-sidebar .nav .nav > li > a {
+    font-size: 12px;
+    font-weight: 400;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    padding-top: 1px;
+}
+
+.test-sidebar .nav .nav > li > a:hover, .test-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+
+// the active link
+.test-sidebar .nav .nav > .active > a, .test-sidebar .nav .nav > .active:hover > a, .test-sidebar .nav .nav > .active:focus > a {
+    font-weight: 500;
+    padding-left: 28px;
+}
+
+.back-to-top {
+    color: #999999;
+    display: none;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 4px 10px;
+}
+
+.back-to-top:hover {
+    color: #563D7C;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) { 
+    .back-to-top {
+        display: block;
+    }
+    .test-sidebar {
+        padding-left: 20px; 
+    }
+}
+
+@media (min-width: 992px) {
+    .test-sidebar .nav > .active > ul { // display subnavs
+        display: block;
+    }
+    .test-sidebar.affix, .test-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .test-sidebar.affix {           // affix sidebar (redundant security measure)
+        position: fixed;
+        top: 20px;
+    }
+    .test-sidebar.affix-bottom {    // affix sidebar (redundant security measure)
+        position: absolute;
+    }
+    .test-sidebar.affix-bottom .test-sidenav, .test-sidebar.affix .test-sidenav {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .test-sidebar.affix-bottom, .test-sidebar.affix {
+        width: 263px;
+    }
+}
+
+// carousel
+#test-carousel .carousel-inner > .item > img,  #test-carousel  .carousel-inner > .item > a > img {
+    width: 100%;
+}

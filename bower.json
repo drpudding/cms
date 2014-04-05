@@ -1,0 +1,12 @@
+{
+  "name": "CMS",
+  "dependencies": {
+    "bootstrap": "3.1.*",
+    "datatables": "~1.9.*",
+    "datatables-bootstrap3": "*",
+    "bootstrap3-wysihtml5-bower": "~0.2.9"
+  },
+  "resolutions": {
+    "jquery": "~1.8.0"
+  }
+}

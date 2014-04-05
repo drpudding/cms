@@ -1,0 +1,144 @@
+/*
+    BASE BACK & FRONT END STYLES (LESS or CSS)
+
+    Includes:
+        - core Bootstrap .less:  imports from /components/bower/bootstrap/ 
+        - custom less variables from variables-custom.less
+        - custom less font variables from fonts.less
+        - any changes to front- & back-end core component semantics (e.g. Bootstrap)
+        - additional project-wide CSS & Mixins  
+ */
+
+/*!
+ * Bootstrap v3.1.1 (http://getbootstrap.com)
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+//@import "../components/bower/bootstrap/less/variables.less";          // variables master -- default
+@import "theme-yeti/variables.less";                                    // variables master -- custom       
+@import "variables-custom.less";                                        // custom variables
+@import "../components/bower/bootstrap/less/mixins.less";               // mixins() master
+
+// Reset
+@import "../components/bower/bootstrap/less/normalize.less";            // browser compatibility
+@import "../components/bower/bootstrap/less/print.less";                // print styles
+
+// Core CSS
+@import "../components/bower/bootstrap/less/scaffolding.less";          // basics: fonts, links, img
+@import "../components/bower/bootstrap/less/type.less";                 // typography  
+@import "../components/bower/bootstrap/less/code.less";                 // code
+@import "../components/bower/bootstrap/less/grid.less";                 // grid
+@import "../components/bower/bootstrap/less/tables.less";               // tables
+@import "../components/bower/bootstrap/less/forms.less";                // forms
+@import "../components/bower/bootstrap/less/buttons.less";              // buttons
+
+// Components
+@import "../components/bower/bootstrap/less/component-animations.less"; // fade (e.g. alert) & collapse (e.g. responsive navbar)
+@import "../components/bower/bootstrap/less/glyphicons.less";           // glyphicons
+@import "../components/bower/bootstrap/less/dropdowns.less";            // dropdowns
+@import "../components/bower/bootstrap/less/button-groups.less";        // buttons with xtra grouped elements
+@import "../components/bower/bootstrap/less/input-groups.less";         // input fields with xtra elements
+@import "../components/bower/bootstrap/less/navs.less";                 // tabs and pills
+@import "../components/bower/bootstrap/less/navbar.less";               // navbars
+// @import "../components/bower/bootstrap/less/breadcrumbs.less";       // breadcrumbs
+@import "../components/bower/bootstrap/less/pagination.less";           // pagination
+// @import "../components/bower/bootstrap/less/pager.less";             // simple prev & next buttons
+@import "../components/bower/bootstrap/less/labels.less";               // simple labels
+@import "../components/bower/bootstrap/less/badges.less";               // badges (e.g. for #s)
+@import "../components/bower/bootstrap/less/jumbotron.less";
+@import "../components/bower/bootstrap/less/thumbnails.less";           // grid system for images, video, text, etc.
+@import "../components/bower/bootstrap/less/alerts.less";               // alert boxes
+// @import "../components/bower/bootstrap/less/progress-bars.less";     // progress bars
+@import "../components/bower/bootstrap/less/media.less";                // feature a left- or right-aligned image alongside text
+@import "../components/bower/bootstrap/less/list-group.less";           // lists of elements, with badges, links, etc.
+@import "../components/bower/bootstrap/less/panels.less";               // text in a box with an optional header or footer
+@import "../components/bower/bootstrap/less/wells.less";                // just text with an inset box effect
+@import "../components/bower/bootstrap/less/close.less";                // close button
+
+// Components w/ JavaScript
+@import "../components/bower/bootstrap/less/modals.less";               // modals
+@import "../components/bower/bootstrap/less/tooltip.less";              // tooltips
+@import "../components/bower/bootstrap/less/popovers.less";             // popovers
+@import "../components/bower/bootstrap/less/carousel.less";
+
+// Utility classes
+@import "../components/bower/bootstrap/less/utilities.less";            // affix, clearfix, hide
+@import "../components/bower/bootstrap/less/responsive-utilities.less";
+
+// OVERRRIDES
+@import "fonts.less";
+@import "theme-yeti/bootswatch.less";
+
+// -------------------------------------------------------------
+
+/*!
+* Custom CSS
+*
+*/
+
+
+/* GENERAL */
+body {
+    //font-size: small;
+}
+
+/* MIXINS */
+.RoundCorners (@radius: 5px) {
+    .border-top-radius(@radius);
+    .border-bottom-radius(@radius);
+}
+
+/* STICKY FOOTER WITH FIXED NAVBAR */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;  /* Margin bottom by footer height */
+}
+
+body > .container {
+    padding: 60px 15px 0;
+}
+
+#footer {
+    background-color: #F5F5F5;
+    bottom: 0;
+    height: 60px;  /* Set the fixed height of the footer here */
+    position: absolute;
+    width: 100%;
+}
+
+#footer > .container {
+    padding: 15px;
+}
+
+/* SEMANTICS BASED ON TWITTER BOOTSTRAP */
+.table {
+    border-collapse: collapse;
+}
+
+.page-header {
+    margin: (@line-height-computed) 0;
+}
+
+.pagination {
+    margin: 0;
+}
+
+.btn { 
+    .transition-duration (0.2s); // add hover transition
+}
+
+.nofade { 
+    .transition-duration (0s); // remove hover transition
+}
+
+
+/**
+* MAC customizations
+*/
+

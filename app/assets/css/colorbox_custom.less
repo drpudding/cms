@@ -1,0 +1,81 @@
+/*
+// Colorbox custom
+// note: uses Bootstrap mixins, so importing along with base.less into backend.less
+*/
+
+body {
+	margin-bottom: 0px; // remove margin for footer
+}
+
+body > .modalLayout { // pad content w/out footer
+    padding: 0px 35px 0;
+}
+
+/* ColorBox General Adjustments */
+
+//#colorbox{ margin-top:-80px !important;}
+
+.modal-content #cboxLoadedContent {
+    background: none repeat scroll 0 0 #FFFFFF  !important;
+    padding: 0px !important; // remove black out line
+}
+
+.modal-content #cboxClose { // hide or position close x
+    background-position: -50px -5px !important;
+    width: 30px;
+    //.hide;
+}
+
+/* ColorBox Modal Layout */
+.modalLayout {
+
+    font-size: 13px;
+    
+    .page-header { 
+        margin-top: 10px;// 10px if using close button
+    }
+
+    .form-group {
+        margin-bottom: 10px; 
+    }
+
+    button {
+        .btn-sm;
+    }
+
+    .btn-cancel {
+        .btn-warning;
+    }   
+
+    input {
+        .input-sm;
+    }
+
+    input, textarea, select {
+        font-size: 13px;
+    }
+
+    input[type="checkbox"] {
+         height: auto;
+          margin: 6px;
+    }
+
+    .tab-pane {
+        padding-top: 20px;  // top padding on colorbox tab content
+    }
+
+    .permissions label {
+        display: block;
+    }
+
+}
+
+/* MISC */
+
+// tfoot input.search_init, thead input.search_init { // column filter text search
+//     color: #999999;
+// }
+
+// #tab-permissions input[type="radio"],input[type="checkbox"] {
+//     margin: 4px;
+// }
