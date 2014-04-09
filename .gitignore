@@ -30,7 +30,8 @@ _ide_helper.php
 
 # Compiled #
 ################
-/public/assets/*
+/public/assets/css/*
+/public/assets/js/*
 
 # ETC #
 ################
