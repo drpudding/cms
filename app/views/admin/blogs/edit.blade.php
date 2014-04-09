@@ -11,7 +11,7 @@
 	{{ Former::open() }}
 
 	@if (isset($post))
-		{{ Former::populate($post->getObject()) }}
+		{{ Former::populate($post) }}
 	@endif
 
 	<!-- Tabs Content -->

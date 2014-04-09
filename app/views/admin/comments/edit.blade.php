@@ -6,7 +6,7 @@
 	{{ Former::open() }}
 
 	@if (isset($comment))
-		{{ Former::populate($comment->getObject()) }}
+		{{ Former::populate($comment) }}
 	@endif
 
 	{{ Former::select('status')->options(array(

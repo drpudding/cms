@@ -3,10 +3,10 @@
 {{-- Content --}}
 @section('content')
 
-	{{ Former:: open()  }}
+	{{ Former::open() }}
 	
 	@if(isset($user))
-		{{ Former::populate($user->getObject()) }}
+		{{ Former::populate($user) }}
 	@endif
 
 	{{ Former::text('username') }}

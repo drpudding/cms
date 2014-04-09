@@ -6,7 +6,7 @@
 	{{ Former:: open()  }}
 	
 	@if(isset($role))
-		{{ Former::populate($role->getObject()) }}
+		{{ Former::populate($role) }}
 	@endif
 
 	{{ Former::text('name') }}
