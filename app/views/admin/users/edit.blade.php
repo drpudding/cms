@@ -6,7 +6,7 @@
 	{{ Former::open() }}
 	
 	@if(isset($user))
-		{{ Former::populate($user) }}
+		{{ Former::populate($user->getObject()) }}
 	@endif
 
 	{{ Former::text('username') }}

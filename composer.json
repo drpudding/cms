@@ -13,7 +13,7 @@
 		"laravelbook/ardent": "dev-master",
 		"zizaco/confide": "dev-master",
 		"zizaco/entrust": "dev-master",
-		"robclancy/presenter": "1.0.*",
+		"robclancy/presenter": "1.2.*",
         "chumper/datatable": "2.*",
         "anahkiasen/former": "dev-master",
         "patricktalmadge/bootstrapper": "dev-develop"

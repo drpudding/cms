@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7ef351826460e481735b5b000c14bbaf",
+    "hash": "84cf27b4bb6d1539edb8364a1514e45f",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -1091,16 +1091,16 @@
         },
         {
             "name": "robclancy/presenter",
-            "version": "1.0.2",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/robclancy/presenter.git",
-                "reference": "8bc37f0984338627ccf8c9f8d153016a89c76a09"
+                "reference": "76606f0f4a5b2e377ec3f9b5f3937c6b19a3304c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robclancy/presenter/zipball/8bc37f0984338627ccf8c9f8d153016a89c76a09",
-                "reference": "8bc37f0984338627ccf8c9f8d153016a89c76a09",
+                "url": "https://api.github.com/repos/robclancy/presenter/zipball/76606f0f4a5b2e377ec3f9b5f3937c6b19a3304c",
+                "reference": "76606f0f4a5b2e377ec3f9b5f3937c6b19a3304c",
                 "shasum": ""
             },
             "require": {
@@ -1114,7 +1114,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -1132,8 +1132,13 @@
                     "email": "mail@robertclancy.net"
                 }
             ],
-            "description": "This is a simple class to help make a Presenter for your objects.",
-            "time": "2013-05-07 07:45:17"
+            "description": "This is a simple library to help make a Presenter for your objects.",
+            "keywords": [
+                "decorator",
+                "laravel",
+                "presenter"
+            ],
+            "time": "2013-08-14 00:12:52"
         },
         {
             "name": "stack/builder",
