@@ -93,14 +93,10 @@
     //->setOptions("aaSorting", [ [ 1, "desc" ] ]) 			// default column sort
     //->setOptions('aaSorting', array( array(1, 'asc'))) 	// default column sort ; alt syntax
     // ->setOptions('aoColumnDefs', array(					// custom sorting
-    //             // array('bSortable' => true,  'aTargets' => [ 0,1,2,3,4,5,6 ] ),
-    //             // array('bSortable' => false, 'aTargets' => [ 7] ),
-    //             array('bSearchable' => true,  'aTargets' => [0,1,2,3,4,5,6] ),
-    //             array('bSearchable' => false, 'aTargets' => [  7 ] )
-
-    //             ))
+    //             array('bSortable' => true,  'aTargets' => [ 0,1 ] ),
+    //             array('bSortable' => false, 'aTargets' => [ 2,3,4 ] )))
 	->setUrl(URL::to('admin/' . $section . 's/data')) // $data
-    ->render('admin/datatable')}}
+    ->render('admin/datatable_test')}}
 
 	{{ Former::close() }}
 

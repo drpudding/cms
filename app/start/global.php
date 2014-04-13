@@ -35,6 +35,12 @@ ClassLoader::addDirectories(array(
 
 Log::useFiles(storage_path().'/logs/laravel.log');
 
+// Uncomment to log SQL queries
+// Event::listen("illuminate.query", function($query, $bindings, $time, $name){
+//     \Log::info($query."\n");
+//     \Log::info(json_encode($bindings)."\n");
+// });
+
 /*
 |--------------------------------------------------------------------------
 | Application Error Handler

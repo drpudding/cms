@@ -87,38 +87,38 @@
             @foreach ($callbacks as $k => $o)
                 {{ json_encode($k) }}: {{ $o }},
             @endforeach
-            "fnDrawCallback": function(oSettings) {
-                if (window.onDatatableReady) {
-                    window.onDatatableReady(); // sends this to list script
-                }
-                // COLORBOX
-                $(".iframe").colorbox({
-                    width:"40%", height:"70%",
-                    transition: "fade", speed: 100,
-                    iframe: true, 
-                    opacity: 0.6,
-                    overlayClose: false, // no close using overlay (see, layout/default.blade.php)
-                    className: "modal-content", // twb modal class; also for custom styles
-                    onOpen: function(){ // allows fade on without ghost div
-                         $("#colorbox").css("opacity", 0);
-                         $('#cboxOverlay').css({
-                            'background-color': '#000', 
-                            'visibility': 'visible'
-                        });
-                    },
-                    onComplete: function(){
-                        $("#colorbox").animate("opacity", 1);
-                    }
-                });
+            // "fnDrawCallback": function(oSettings) {
+            //     if (window.onDatatableReady) {
+            //         window.onDatatableReady(); // sends this to list script
+            //     }
+            //     // COLORBOX
+            //     $(".iframe").colorbox({
+            //         width:"40%", height:"70%",
+            //         transition: "fade", speed: 100,
+            //         iframe: true, 
+            //         opacity: 0.6,
+            //         overlayClose: false, // no close using overlay (see, layout/default.blade.php)
+            //         className: "modal-content", // twb modal class; also for custom styles
+            //         onOpen: function(){ // allows fade on without ghost div
+            //              $("#colorbox").css("opacity", 0);
+            //              $('#cboxOverlay').css({
+            //                 'background-color': '#000', 
+            //                 'visibility': 'visible'
+            //             });
+            //         },
+            //         onComplete: function(){
+            //             $("#colorbox").animate("opacity", 1);
+            //         }
+            //     });
 
-                // Clear Filters
-                $('.clearFilters').click(function() {
-                    oTable.fnFilterClear();
-                }); 
-            },
+            //     // Clear Filters
+            //     // $('.clearFilters').click(function() {
+            //     //     oTable.fnFilterClear();
+            //     // }); 
+            // },
             "fnInitComplete": function(oSettings, json) {
                 // Column Filtering: select menu(s)
-                var filterIndexes = [1,2]; // which column(s)
+                var filterIndexes = [1]; // which column(s)
                 $("tfoot th").each( function ( i ) {
                     if ($.inArray(i, filterIndexes) !== -1) { 
                         this.innerHTML = fnCreateSelect( oTable.fnGetColumnData(i) );
@@ -132,7 +132,7 @@
                                 case "inactive":
                                   val = 0; break;
                                 }
-                            oTable.fnFilter( val, i-1 ); // filter column (i) by selected value
+                            oTable.fnFilter( val, i ); // filter column (i) by selected value
                         });
                     }
                 });

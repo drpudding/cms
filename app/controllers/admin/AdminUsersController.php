@@ -64,12 +64,50 @@ class AdminUsersController extends AdminController {
         return View::make('admin/list', compact('section', 'title', 'columns', 'filters'));
     }
 
-    /**
+     /**
      * Return Users List data, formatted for Datatable
      * 
      * @return Datatables JSON
      */
     public function getData()
+    {
+  
+        $query = DB::table('users')
+            ->select(array('users.id AS user_id', 'users.username','users.email',  DB::raw('GROUP_CONCAT( roles.name SEPARATOR \'<br>\') AS roles'), 'users.confirmed', 'users.created_at AS user_created_at'))
+            ->leftjoin('assigned_roles', 'assigned_roles.user_id', '=', 'users.id')
+            ->leftjoin('roles', 'roles.id', '=', 'assigned_roles.role_id')
+            ->groupBy('users.id');
+
+         return Datatable::query($query) // as COLLECTION
+         
+            ->addColumn('checkbox', function($model) { return '<input type="checkbox" name="ids[]" value="' . $model->user_id . '">'; })
+            ->showColumns('user_id', 'username', 'email', 'roles') // add these columns
+            ->addColumn('confirmed', function($model) { return ($model->confirmed > 0) ? 'active' : 'inactive'; })   // conditional
+            ->addColumn('user_created_at', function($model) { return String::date(Carbon::createFromFormat('Y-m-d H:i:s', $model->user_created_at)); })
+            ->addColumn('dropdown', function($model) // some action items, wrapped in a dropdown
+            { 
+
+                return '<div class="btn-group tr-action">
+                            <a class="btn-default btn btn-xs iframe" href="' . URL::to('admin/users/' . $model->user_id . '/edit' ) . '" class="iframe">' . Lang::get('button.edit') . '</a>
+                            <button class="btn-default btn btn-xs dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="' . URL::to('admin/users/' . $model->user_id . '/edit' ) . '" class="iframe">' . Lang::get('button.edit') . '</a></li>' .  
+                            ($model->username != 'admin' ? 
+                            '<li><a href="' . URL::to('admin/users/' . $model->user_id . '/delete' ) . '" class="iframe">' . Lang::get('button.delete') . '</a></li>' : '');
+                            '</ul>
+                        </div>';
+            })
+            ->searchColumns('user_id', 'username') // server side (required)
+            //->orderColumns('username') // server side (use to restrict; otherwise all are sortable)
+            ->make();
+    }
+
+    /**
+     * Return Users List data, formatted for Datatable
+     * 
+     * @return Datatables JSON
+     */
+    public function getDataSavw()
     {
             
         $query = $this->user->with('roles')
@@ -77,7 +115,7 @@ class AdminUsersController extends AdminController {
         ->orderBy('created_at', 'desc')
         ->get(); // use eager loading (use relationship names)
 
-         return Datatable::collection($query) // as COLLECTION
+         return Datatable::query($query) // as COLLECTION
          
             ->addColumn('checkbox', function($model) { return '<input type="checkbox" name="ids[]" value="' . $model->id . '">'; })
             ->showColumns('id', 'username', 'email') // add these columns
