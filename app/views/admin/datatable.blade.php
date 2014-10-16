@@ -118,7 +118,7 @@
             },
             "fnInitComplete": function(oSettings, json) {
                 // Column Filtering: select menu(s)
-                var filterIndexes = [1,2]; // which column(s)
+                var filterIndexes = [1]; // which column(s)
                 $("tfoot th").each( function ( i ) {
                     if ($.inArray(i, filterIndexes) !== -1) { 
                         this.innerHTML = fnCreateSelect( oTable.fnGetColumnData(i) );
@@ -132,7 +132,7 @@
                                 case "inactive":
                                   val = 0; break;
                                 }
-                            oTable.fnFilter( val, i-1 ); // filter column (i) by selected value
+                            oTable.fnFilter( val, i-1); // filter column (i) by selected value
                         });
                     }
                 });

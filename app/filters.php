@@ -81,7 +81,7 @@ Route::filter('guest', function()
 |
 */
 
-// Check for role on all admin routes
+// Check for 'admin' role on all admin routes
 Entrust::routeNeedsRole( 'admin*', array('admin'), Redirect::to('/') );
 
 // Check for permissions on admin actions
@@ -133,7 +133,7 @@ Route::filter('detectLang',  function($route, $request, $lang = 'auto')
         Config::set('app.locale', $lang);
         App::setLocale($lang);
 
-    // browser detection, with fallbacl to Config app.locale
+    // browser detection, with fallback to Config app.locale
     } else {
         $browser_lang = !empty($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? strtok(strip_tags($_SERVER['HTTP_ACCEPT_LANGUAGE']), ',') : '';
         $browser_lang = substr($browser_lang, 0,2);

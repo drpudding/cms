@@ -154,7 +154,6 @@ Route::get('contact-us', function()
 // HOME
 Route::get('/', array('before' => 'detectLang', function()
     {
-
         $data['title'] = 'Home';
         return View::make('site/home', $data);
     })

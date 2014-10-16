@@ -64,9 +64,9 @@ class AdminUsersController extends AdminController {
         return View::make('admin/list', compact('section', 'title', 'columns', 'filters'));
     }
 
-     /**
+    /**
      * Return Users List data, formatted for Datatable
-     * 
+     *
      * @return Datatables JSON
      */
     public function getData()
@@ -78,7 +78,7 @@ class AdminUsersController extends AdminController {
             ->leftjoin('roles', 'roles.id', '=', 'assigned_roles.role_id')
             ->groupBy('users.id');
 
-         return Datatable::query($query) // as COLLECTION
+         return Datatable::query($query) // as QUERY
          
             ->addColumn('checkbox', function($model) { return '<input type="checkbox" name="ids[]" value="' . $model->user_id . '">'; })
             ->showColumns('user_id', 'username', 'email', 'roles') // add these columns
@@ -107,7 +107,7 @@ class AdminUsersController extends AdminController {
      * 
      * @return Datatables JSON
      */
-    public function getDataSavw()
+    public function getDataSave()
     {
             
         $query = $this->user->with('roles')
@@ -115,7 +115,7 @@ class AdminUsersController extends AdminController {
         ->orderBy('created_at', 'desc')
         ->get(); // use eager loading (use relationship names)
 
-         return Datatable::query($query) // as COLLECTION
+         return Datatable::collection($query) // as COLLECTION
          
             ->addColumn('checkbox', function($model) { return '<input type="checkbox" name="ids[]" value="' . $model->id . '">'; })
             ->showColumns('id', 'username', 'email') // add these columns
@@ -149,6 +149,7 @@ class AdminUsersController extends AdminController {
             //->orderColumns('id', 'username', 'confirmed', 'created_at') // server side; add bSortable to client-side (yes!)r
             ->make();
     }
+ 
 
     /**
      * Display Create New User form

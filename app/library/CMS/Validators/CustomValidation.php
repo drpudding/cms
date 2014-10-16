@@ -55,7 +55,7 @@
 
     }
 
-    // Sample Custom Validation
+    // SAMPLE CUSTOM VALIDATION
     // set in a model: public static $rules = array('username' => 'required|begin_with:a);
     // field = username, value = entry, params[0] = a
     public function validateBeginWith($field, $value, $params)

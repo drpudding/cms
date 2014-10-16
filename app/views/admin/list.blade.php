@@ -20,7 +20,7 @@
 		</h3>
 	</div>
 
-	{{-- FILTERS
+	{{-- FILTER FORMS
 			This will check for any search filters passed
 
 	 --}}
@@ -35,7 +35,7 @@
 		{{ Former::close() }}
 
 		@endforeach
-	
+
 	@endif
 
 
@@ -46,14 +46,13 @@
 		{{ Former::text('id') }}
 	</div>
 
-	
 
 	{{-- Archive Menu --}}
 	<?php
 
 		$m = null;
 
-		if($section != 'role') {
+		if($section != 'role') { // roles cannot be altered
 
 			$m = '<div class="btn-group" id="archiveMenu">\
 						<button type="button" class="btn-default btn btn-xs" disabled="">Activate</button>\
@@ -64,7 +63,7 @@
 
 				switch($section) {
 
-					case 'user':
+					case 'user': // users & comments cannot be archived
 					case 'comment': break;
 					default: $m .= '<li><a data-action="archive" href="#">ARCHIVE ' . $section . '</a></li>\\';
 				}
@@ -88,7 +87,7 @@
 
 	{{-- DATATABLES --}}
    	{{Datatable::table()
-   	->addColumn($columns)
+   	->addColumn($columns) // set on getIndex
     //->addColumn('ID', 'Name', 'Permissions', 'Users', 'Actions')
     //->setOptions("aaSorting", [ [ 1, "desc" ] ]) 			// default column sort
     //->setOptions('aaSorting', array( array(1, 'asc'))) 	// default column sort ; alt syntax
@@ -130,7 +129,7 @@
 			submitForm('archive');
 		}
 
-		// set the hidden action form field; submit to action
+		// confirm deletes; set the hidden action form field; submit to action (postBulk)
 		function submitForm(action) {
 
 			if (action == 'delete') {
